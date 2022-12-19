@@ -1,22 +1,24 @@
 import zlib from "node:zlib";
 import { createReadStream, createWriteStream } from "node:fs";
 
-const compress = async (pathToFile, pathToDest) => {
+class Archive {
+  static async compress(pathToFile, pathToDest) {
     const zip = zlib.createBrotliCompress();
 
     const read = createReadStream(pathToFile);
     const write = createWriteStream(pathToDest);
 
     read.pipe(zip).pipe(write);
-};
+  }
 
-const decompress = async (pathToArchive, pathToDest) => {
+  static async decompress(pathToArchive, pathToDest) {
     const zip = zlib.createBrotliDecompress();
 
     const read = createReadStream(pathToArchive);
     const write = createWriteStream(pathToDest);
 
     read.pipe(zip).pipe(write);
-};
+  }
+}
 
-export { compress, decompress }
+export default Archive;

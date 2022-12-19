@@ -1,5 +1,5 @@
 const COMMAND = {
-    CLOSE_APP: ".close",
+    CLOSE_APP: ".exit",
 
     UP_DIR: "up",
     CHANGE_DIR: "cd",
@@ -18,7 +18,7 @@ const COMMAND = {
     OS: "os"
 };
 
-const OS_ARGS = {
+const OS_FLAGS = {
     EOL: 'EOL',
     CPUS: 'cpus',
     HOME_DIR: 'homedir',
@@ -26,4 +26,4 @@ const OS_ARGS = {
     ARCH: 'architecture'
 }
 
-export { COMMAND, OS_ARGS }
+export { COMMAND, OS_FLAGS }
